@@ -1,11 +1,11 @@
 // Variables Globales
 const productosBase = [
-    { codigo: 'PROD001', nombre: 'TV', categoria: 'Tecno', precio: 150000 },
-    { codigo: 'PROD002', nombre: 'Olla', categoria: 'Cocina', precio: 25000 },
-    { codigo: 'PROD003', nombre: 'Cacerola', categoria: 'Cocina', precio: 15000 },
-    { codigo: 'PROD004', nombre: 'Auriculares', categoria: 'Tecno', precio: 9000 },
-    { codigo: 'PROD005', nombre: 'Microfono', categoria: 'Tecno', precio: 11000 },
-    { codigo: 'PROD006', nombre: 'Escritorio', categoria: 'Muebles', precio: 60000 }
+    { codigo: 'PROD001', nombre: 'TV', categoria: 'Tecno', precio: 250000 },
+    { codigo: 'PROD002', nombre: 'Olla', categoria: 'Cocina', precio: 13000 },
+    { codigo: 'PROD003', nombre: 'Cacerola', categoria: 'Cocina', precio: 10000 },
+    { codigo: 'PROD004', nombre: 'Auriculares', categoria: 'Tecno', precio: 7000 },
+    { codigo: 'PROD005', nombre: 'Microfono', categoria: 'Tecno', precio: 17000 },
+    { codigo: 'PROD006', nombre: 'Escritorio', categoria: 'Muebles', precio: 10000 }
 ];
 
 const productos = [];
