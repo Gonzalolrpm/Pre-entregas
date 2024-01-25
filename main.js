@@ -29,6 +29,27 @@ class Producto {
     }
 }
 
+function mostrarProductos() {
+    const container = document.getElementById('resultadoValor');
+    container.innerHTML = ''; 
+
+    productos.forEach(producto => {
+        const productoInfo = document.createElement('p');
+        productoInfo.textContent = `Cód.: ${producto.codigo} | ${producto.nombre} (${producto.categoria}) | $${producto.calcIva()} (iva incl.)`;
+        container.appendChild(productoInfo);
+    });
+}
+
+function guardarEnLocalStorage() {
+    localStorage.setItem('productos', JSON.stringify(productos));
+}
+
+function cargarDesdeLocalStorage() {
+    const storedProductos = localStorage.getItem('productos');
+    if (storedProductos) {
+        productos = JSON.parse(storedProductos);
+    }
+}
 // FUNCIONES
 const nuevoCodigo = () => {
     let x = prompt(`Por favor ingrese el código del producto. Máximo 8 caracteres.`).toUpperCase();
@@ -85,25 +106,10 @@ const menuNuevoProducto = () => {
     console.log('ingresaste a menu nuevo producto'); 
     let continuar = true;
     while (continuar) {
-        codigo = nuevoCodigo();
-        nombre = notNull(prompt(`Ingrese el nombre del producto:`));
-        categoria = notNull(prompt(`Ingrese la categoría del producto`));
-        precio = notNumber(Number(prompt(`Ingrese el precio del producto:`)));
-        
+
         agregarProducto(codigo, nombre, categoria, precio);
         
-        let agregarOtro = prompt(`Desea agregar otro producto? (si/no)`).toLowerCase();
-
-        while (agregarOtro !== "si" && agregarOtro !== "no") {
-            agregarOtro = prompt(`Desea agregar otro producto? (si/no)
-            Este campo solo acepta 'si' o 'no'`)
-        }
-        
-        if (agregarOtro === "si") {
-            continuar = true;
-        } else {
-            continuar = false;
-        }
+        guardarEnLocalStorage(); 
     }
     menuPrincipal();
 }
@@ -246,6 +252,7 @@ const menuPrincipal = () => {
 }
 
 // inicio
+cargarDesdeLocalStorage(); 
 alert(`Bienvenido!
 Por favor, utilice las opciones del menú para navegar por el programa!`);
 menuPrincipal();
